@@ -75,6 +75,9 @@ public abstract class MarkupEngine implements ParserEngine {
         StringBuilder builder = new StringBuilder();
         int count = 0;
         for (Element element : document.body().children()) {
+            if ("div".equals(element.nodeName()) && "toc".equals(element.attr("id"))) {
+                continue;
+            }
             builder.append(element.outerHtml());
             builder.append("\n");
             count += element.text().length();
