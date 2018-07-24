@@ -3,6 +3,8 @@ package org.jbake.util;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import org.apache.commons.lang.StringUtils;
+
 public class PagingHelper {
     private static final String URI_SEPARATOR = "/";
     private long totalDocuments;
@@ -49,6 +51,10 @@ public class PagingHelper {
             return fileName;
         }
         else {
+            int idx = StringUtils.lastIndexOf(fileName, '/');
+            if (idx > 0) {
+                return new URI(fileName.substring(0, idx) + URI_SEPARATOR + page + URI_SEPARATOR + fileName.substring(idx + 1)).toString();
+            }
             return new URI(page + URI_SEPARATOR + fileName).toString();
         }
     }
