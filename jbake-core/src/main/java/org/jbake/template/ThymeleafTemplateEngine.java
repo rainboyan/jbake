@@ -60,6 +60,7 @@ public class ThymeleafTemplateEngine extends AbstractTemplateEngine {
         templateResolver.setTemplateMode(mode);
         templateEngine = new TemplateEngine();
         templateEngine.setTemplateResolver(templateResolver);
+		templateEngine.setLinkBuilder(new ThymeleafLinkBuilder());
 		templateEngine.addDialect(new LayoutDialect(new GroupingStrategy()));
 		templateEngine.addDialect(new DataAttributeDialect());
     }
