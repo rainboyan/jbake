@@ -192,7 +192,7 @@ public class ContentStore {
     }
 
     public DocumentList getAllContent(String docType, boolean applyPaging) {
-        String query = "select * from " + docType + " order by date desc";
+        String query = "select * from " + docType + " where status='published' order by date desc";
         if (applyPaging && hasStartAndLimitBoundary()) {
             query += " SKIP " + start + " LIMIT " + limit;
         }
