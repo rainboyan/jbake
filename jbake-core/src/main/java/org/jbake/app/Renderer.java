@@ -181,6 +181,10 @@ public class Renderer {
      * @throws Exception    if IOException or SecurityException are raised
      */
     public void render(Map<String, Object> content) throws Exception {
+        if (content.get(Crawler.Attributes.STATUS).equals(Crawler.Attributes.Status.DRAFT) &&
+                "false".equals(config.getString(Keys.RENDER_DRAFT))) {
+            return;
+        }
         String docType = (String) content.get(Crawler.Attributes.TYPE);
         String outputFilename = destination.getPath() + File.separatorChar + ((String)content.get(Attributes.URI)).replace("/",File.separator);
         if (outputFilename.lastIndexOf('.') > outputFilename.lastIndexOf(File.separatorChar)) {

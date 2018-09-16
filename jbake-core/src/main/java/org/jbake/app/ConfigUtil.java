@@ -106,6 +106,10 @@ public class ConfigUtil {
 		 */
 		String OUTPUT_EXTENSION = "output.extension";
 		/**
+		 * Flag indicating if draft file should be generated
+		 */
+		String RENDER_DRAFT = "render.draft";
+		/**
 		 * Flag indicating if archive file should be generated
 		 */
 		String RENDER_ARCHIVE = "render.archive";
