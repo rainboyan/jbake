@@ -212,7 +212,7 @@ public class ContentStore {
     }
 
     public DocumentList getUnrenderedContent(String docType) {
-        return query("select * from " + docType + " where rendered=false order by date desc");
+        return query("select * from " + docType + " where status='published' and rendered=false order by date desc");
     }
 
     public void deleteContent(String docType, String uri) {
