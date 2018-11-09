@@ -60,7 +60,7 @@ public class ContentStore {
     private static final String STATEMENT_GET_UNDRENDERED_CONTENT = "select * from %s where rendered=false order by date desc";
     private static final String STATEMENT_GET_SIGNATURE_FOR_TEMPLATES = "select sha1 from Signatures where key='templates'";
     private static final String STATEMENT_GET_TAGS_FROM_PUBLISHED_POSTS = "select tags from post where status='published'";
-    private static final String STATEMENT_GET_ALL_CONTENT_BY_DOCTYPE = "select * from %s order by date desc";
+    private static final String STATEMENT_GET_ALL_CONTENT_BY_DOCTYPE = "select * from %s where status='published' order by date desc";
     private static final String STATEMENT_GET_PUBLISHED_CONTENT_BY_DOCTYPE = "select * from %s where status='published' order by date desc";
     private static final String STATEMENT_GET_PUBLISHED_POSTS_BY_TAG = "select * from post where status='published' and ? in tags order by date desc";
     private static final String STATEMENT_GET_TAGS_BY_DOCTYPE = "select tags from %s where status='published'";
