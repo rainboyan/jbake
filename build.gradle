@@ -27,7 +27,7 @@ ext {
     slf4jVersion = '1.7.25'
     logbackVersion = '1.2.3'
     assertjCoreVersion = '2.9.1'
-    thymeleafVersion = '3.0.9.RELEASE'
+    thymeleafVersion = '3.0.11.RELEASE'
     thymeleafLayoutVersion = '2.3.0'
     thymeleafExtrasDataAttributeVersion = '2.0.1'
     jsonSimpleVersion = '1.1.1'
