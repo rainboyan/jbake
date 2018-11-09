@@ -388,6 +388,15 @@ public class DefaultJBakeConfiguration implements JBakeConfiguration {
     }
 
     @Override
+    public boolean getRenderDraft() {
+        return compositeConfiguration.getBoolean(JBakeProperty.RENDER_DRAFT, false);
+    }
+
+    public void setRenderDraft(boolean enable) {
+        compositeConfiguration.setProperty(JBakeProperty.RENDER_DRAFT, enable);
+    }
+
+    @Override
     public int getServerPort() {
         return getAsInt(JBakeProperty.SERVER_PORT, 8080);
     }

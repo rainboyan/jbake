@@ -236,6 +236,11 @@ public interface JBakeConfiguration {
     boolean getSanitizeTag();
 
     /**
+     * @return Flag indicating if draft file should be generated
+     */
+    boolean getRenderDraft();
+
+    /**
      * @return Port used when running Jetty server
      */
     int getServerPort();
