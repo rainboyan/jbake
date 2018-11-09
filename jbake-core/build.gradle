@@ -17,6 +17,8 @@ dependencies {
     compile("com.googlecode.json-simple:json-simple:$jsonSimpleVersion") {
         exclude group: "junit", module: "junit"
     }
+    compile "nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:$thymeleafLayoutVersion", optional
+    compile "com.github.mxab.thymeleaf.extras:thymeleaf-extras-data-attribute:$thymeleafExtrasDataAttributeVersion", optional
     compile "com.orientechnologies:orientdb-core:$orientDbVersion"
     compile "org.asciidoctor:asciidoctorj:$asciidoctorjVersion", optional
 
