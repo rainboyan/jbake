@@ -82,6 +82,7 @@ public class DocumentsRenderer implements RenderingTool {
         navDocument.put(Attributes.NO_EXTENSION_URI, document.get(Attributes.NO_EXTENSION_URI));
         navDocument.put(Attributes.URI, document.get(Attributes.URI));
         navDocument.put(Attributes.TITLE, document.get(Attributes.TITLE));
+        navDocument.put(Attributes.STATUS, document.get(Attributes.STATUS));
         return navDocument;
     }
 
