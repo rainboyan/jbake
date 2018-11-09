@@ -186,6 +186,11 @@ public interface JBakeConfiguration {
     int getPostsPerPage();
 
     /**
+     * @return How many words per post on index
+     */
+    int getPostSummaryLength();
+
+    /**
      * @return URI prefix for content that should be given extension-less output URI's
      */
     String getPrefixForUriWithoutExtension();

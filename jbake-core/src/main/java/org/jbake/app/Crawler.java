@@ -280,6 +280,7 @@ public class Crawler {
         public static final String NO_EXTENSION_URI = "noExtensionUri";
         public static final String ALLTAGS = "alltags";
         public static final String PUBLISHED_DATE = "published_date";
+        public static final String SUMMARY = "summary";
         public static final String BODY = "body";
         public static final String DB = "db";
 

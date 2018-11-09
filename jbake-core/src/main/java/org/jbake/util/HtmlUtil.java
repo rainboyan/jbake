@@ -41,6 +41,18 @@ public class HtmlUtil {
 
         //Use body().html() to prevent adding <body></body> from parsed fragment.
         fileContents.put(Attributes.BODY, document.body().html());
+
+
+        // Fixed image urls for Summary
+        String htmlSummary = fileContents.get(Attributes.SUMMARY).toString();
+        Document summary = Jsoup.parseBodyFragment(htmlSummary);
+        Elements allSummaryImgs = summary.getElementsByTag("img");
+
+        for (Element img : allSummaryImgs) {
+            transformImageSource(img, uri, siteHost, prependSiteHost);
+        }
+
+        fileContents.put(Attributes.SUMMARY, summary.body().html());
     }
 
     private static String getDocumentUri(Map<String, Object> fileContents) {

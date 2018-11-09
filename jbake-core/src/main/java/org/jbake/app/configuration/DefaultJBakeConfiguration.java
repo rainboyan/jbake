@@ -326,6 +326,15 @@ public class DefaultJBakeConfiguration implements JBakeConfiguration {
     }
 
     @Override
+    public int getPostSummaryLength() {
+        return getAsInt(JBakeProperty.POST_SUMMARY_LENGTH, 500);
+    }
+
+    public void setPostSummaryLength(int summaryLength) {
+        setProperty(JBakeProperty.POST_SUMMARY_LENGTH, summaryLength);
+    }
+
+    @Override
     public String getPrefixForUriWithoutExtension() {
         return getAsString(JBakeProperty.URI_NO_EXTENSION_PREFIX);
     }

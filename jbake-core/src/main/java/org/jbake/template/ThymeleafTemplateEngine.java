@@ -11,7 +11,7 @@ import org.thymeleaf.context.LazyContextVariable;
 import org.thymeleaf.templateresolver.FileTemplateResolver;
 import nz.net.ultraq.thymeleaf.LayoutDialect;
 import nz.net.ultraq.thymeleaf.decorators.strategies.GroupingStrategy;
-import com.github.mxab.thymeleaf.extras.dataattribute.dialect.DataAttributeDialect
+import com.github.mxab.thymeleaf.extras.dataattribute.dialect.DataAttributeDialect;
 
 import java.io.File;
 import java.io.Writer;

@@ -26,6 +26,7 @@ public class JBakeProperty {
     public static final String OUTPUT_EXTENSION = "output.extension";
     public static final String PAGINATE_INDEX = "index.paginate";
     public static final String POSTS_PER_PAGE = "index.posts_per_page";
+    public static final String POST_SUMMARY_LENGTH  = "index.post_summary_length";
     public static final String RENDER_ARCHIVE = "render.archive";
     public static final String RENDER_FEED = "render.feed";
     public static final String RENDER_INDEX = "render.index";

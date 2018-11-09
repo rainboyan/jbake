@@ -7,9 +7,12 @@ import org.jbake.app.Crawler;
 import org.jbake.app.configuration.DefaultJBakeConfiguration;
 import org.jbake.app.configuration.JBakeConfiguration;
 import org.json.simple.JSONValue;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.Jsoup;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -61,6 +64,30 @@ public abstract class MarkupEngine implements ParserEngine {
      * @param context the parser context
      */
     public void processBody(final ParserContext context) {
+    }
+
+    /**
+     * Processes the summary of the document. Usually subclasses will parse the document body and render
+     * it, exporting the result using the {@link org.jbake.parser.ParserContext#setSummary(String)} method.
+     *
+     * @param context the parser context
+     */
+    public void processSummary(final ParserContext context) {
+        Document document = Jsoup.parse(context.getBody());
+        StringBuilder builder = new StringBuilder();
+        int maxLength = configuration.getPostSummaryLength();
+        int count = 0;
+        for (Element element : document.body().children()) {
+            if ("div".equals(element.nodeName()) && "toc".equals(element.attr("id"))) {
+                continue;
+            }
+            builder.append(element.outerHtml());
+            builder.append("\n");
+            count += element.text().length();
+            if (count >= maxLength)
+                break;
+        }
+         context.setSummary(builder.toString());
     }
 
     @Override
@@ -116,6 +143,7 @@ public abstract class MarkupEngine implements ParserEngine {
         // eventually process body using specific engine
         if (validate(context)) {
             processBody(context);
+            processSummary(context);
         } else {
             LOGGER.error("Incomplete source file ({}) for markup engine: {}", file, getClass().getSimpleName());
             return null;

@@ -56,6 +56,14 @@ public class ParserContext {
     public void setBody(String str) {
         documentModel.put(Crawler.Attributes.BODY, str);
     }
+    
+    public String getSummary() {
+        return documentModel.get(Crawler.Attributes.SUMMARY).toString();
+    }
+    
+    public void setSummary(String str) {
+        documentModel.put(Crawler.Attributes.SUMMARY, str);
+    }
 
     public Object getDate() {
         return getDocumentModel().get(Crawler.Attributes.DATE);
