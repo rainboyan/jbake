@@ -57,7 +57,7 @@ public class ContentStore {
     private static final String STATEMENT_GET_PUBLISHED_COUNT = "select count(*) as count from %s where status='published'";
     private static final String STATEMENT_MARK_CONTENT_AS_RENDERD = "update %s set rendered=true where rendered=false and cached=true";
     private static final String STATEMENT_DELETE_DOCTYPE_BY_SOURCEURI = "delete from %s where sourceuri=?";
-    private static final String STATEMENT_GET_UNDRENDERED_CONTENT = "select * from %s where rendered=false order by date desc";
+    private static final String STATEMENT_GET_UNDRENDERED_CONTENT = "select * from %s where status='published' and rendered=false order by date desc";
     private static final String STATEMENT_GET_SIGNATURE_FOR_TEMPLATES = "select sha1 from Signatures where key='templates'";
     private static final String STATEMENT_GET_TAGS_FROM_PUBLISHED_POSTS = "select tags from post where status='published'";
     private static final String STATEMENT_GET_ALL_CONTENT_BY_DOCTYPE = "select * from %s where status='published' order by date desc";
